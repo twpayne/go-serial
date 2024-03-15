@@ -1,5 +1,7 @@
 # go-serial
 
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/twpayne/go-serial)](https://pkg.go.dev/github.com/twpayne/go-serial)
+
 Package serial handles serial ports.
 
 ## Features
