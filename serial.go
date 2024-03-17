@@ -19,12 +19,21 @@ const (
 	ParityEven Parity = 2
 )
 
+// A StopBits is the number of stop bits.
+type StopBits int
+
+// Stop bits.
+const (
+	StopBits1 StopBits = 1
+	StopBits2 StopBits = 2
+)
+
 // A Config is a serial port configuration.
 type Config struct {
 	BaudRate    int
 	DataBits    int
 	Parity      Parity
-	StopBits    int
+	StopBits    StopBits
 	ReadTimeout time.Duration
 }
 

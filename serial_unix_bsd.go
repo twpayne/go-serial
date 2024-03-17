@@ -44,9 +44,9 @@ var (
 		ParityOdd:  unix.PARENB | unix.PARODD,
 	}
 
-	stopBitsFlags = map[int]uint64{
-		1: 0,
-		2: unix.CSTOPB,
+	stopBitsFlags = map[StopBits]uint64{
+		StopBits1: 0,
+		StopBits2: unix.CSTOPB,
 	}
 )
 
