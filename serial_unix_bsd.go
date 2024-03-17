@@ -52,7 +52,7 @@ var (
 
 // Flush flushes p.
 func (p *Port) Flush() error {
-	return nil // FIXME
+	return unix.IoctlSetInt(int(p.file.Fd()), unix.TIOCFLUSH, unix.TCIOFLUSH)
 }
 
 // Reconfigure reconfigures p.
