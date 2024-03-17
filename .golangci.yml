@@ -35,13 +35,11 @@ linters:
   - gocritic
   - gocyclo
   - godot
-  - godox
   - goerr113
   - gofmt
   - gofumpt
   - goheader
   - goimports
-  - gomoddirectives
   - gomodguard
   - goprintffuncname
   - gosec
@@ -102,6 +100,8 @@ linters:
   - depguard
   - exhaustruct
   - gochecknoglobals
+  - godox
+  - gomoddirectives
   - gomnd
   - nlreturn
   - nonamedreturns
@@ -146,3 +146,6 @@ issues:
   - linters:
     - forbidigo
     path: ^cmd/
+  - linters:
+    - inamedparam
+    path: _test\.go$
