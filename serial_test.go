@@ -13,9 +13,9 @@ var (
 
 	_ interface {
 		Close() error
+		Configure(*serial.Config) error
 		Flush() error
 		Read([]byte) (int, error)
-		Reconfigure(*serial.Config) error
 		Write([]byte) (int, error)
 	} = &serial.Port{}
 )

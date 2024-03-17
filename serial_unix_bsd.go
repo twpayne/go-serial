@@ -55,8 +55,8 @@ func (p *Port) Flush() error {
 	return unix.IoctlSetInt(int(p.file.Fd()), unix.TIOCFLUSH, unix.TCIOFLUSH)
 }
 
-// Reconfigure reconfigures p.
-func (p *Port) Reconfigure(config *Config) error {
+// Configure configures p.
+func (p *Port) Configure(config *Config) error {
 	termios, err := config.termios()
 	if err != nil {
 		return err

@@ -14,7 +14,7 @@ func run() error {
 	baudRate := flag.Int("b", 57600, "baud rate")
 	flag.Parse()
 
-	port, err := serial.Open(*path, &serial.Config{
+	port, err := serial.OpenAndConfigure(*path, &serial.Config{
 		BaudRate: *baudRate,
 		DataBits: 8,
 		Parity:   serial.ParityNone,

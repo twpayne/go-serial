@@ -14,21 +14,27 @@ type Port struct {
 	file *os.File
 }
 
-// Open opens the serial path at path with the given config.
-func Open(path string, config *Config) (p *Port, err error) {
-	p = &Port{}
-	p.file, err = os.OpenFile(path, unix.O_RDWR|unix.O_NOCTTY, 0)
+// Open opens the serial port at path.
+func Open(path string) (*Port, error) {
+	file, err := os.OpenFile(path, unix.O_RDWR|unix.O_NOCTTY, 0)
 	if err != nil {
 		return nil, err
 	}
-	defer func() {
-		if err != nil {
-			err = errors.Join(err, p.file.Close())
-		}
-	}()
+	return &Port{
+		file: file,
+	}, nil
+}
 
-	if err := p.Reconfigure(config); err != nil {
+// OpenAndConfigure opens the serial port at path and configures it with the
+// given config.
+func OpenAndConfigure(path string, config *Config) (*Port, error) {
+	p, err := Open(path)
+	if err != nil {
 		return nil, err
+	}
+
+	if err := p.Configure(config); err != nil {
+		return nil, errors.Join(err, p.Close())
 	}
 
 	return p, nil
