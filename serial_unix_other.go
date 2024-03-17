@@ -64,8 +64,7 @@ var (
 
 // Flush flushes p.
 func (p *Port) Flush() error {
-	_, _, err := unix.Syscall(unix.SYS_IOCTL, p.file.Fd(), unix.TCFLSH, unix.TCIOFLUSH)
-	return err
+	return unix.IoctlSetInt(int(p.file.Fd()), unix.TCFLSH, unix.TCIOFLUSH)
 }
 
 // Reconfigure reconfigures p.
