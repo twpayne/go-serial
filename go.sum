@@ -1,2 +1,2 @@
-golang.org/x/sys v0.18.0 h1:DBdB3niSjOA/O0blCZBqDefyWNYveAYMNF1Wum0DYQ4=
-golang.org/x/sys v0.18.0/go.mod h1:/VUhepiaJMQUp4+oa/7Zr1D23ma6VTLIYjOOTFZPUcA=
+github.com/twpayne/sys v0.0.0-20240317162936-d7891e91d107 h1:S2rSJR3dOViW+oqmN2z0W1yOyDJOniFRkr7t/yJ5hHc=
+github.com/twpayne/sys v0.0.0-20240317162936-d7891e91d107/go.mod h1:/VUhepiaJMQUp4+oa/7Zr1D23ma6VTLIYjOOTFZPUcA=

@@ -5,12 +5,18 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"runtime"
 
 	"github.com/twpayne/go-serial"
 )
 
+var defaultPath = map[string]string{
+	"linux":   "/dev/ttyUSB0",
+	"windows": "COM1",
+}
+
 func run() error {
-	path := flag.String("p", "/dev/ttyUSB0", "port")
+	path := flag.String("p", defaultPath[runtime.GOOS], "port")
 	baudRate := flag.Int("b", 57600, "baud rate")
 	flag.Parse()
 
