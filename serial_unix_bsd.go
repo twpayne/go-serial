@@ -50,6 +50,11 @@ var (
 	}
 )
 
+// Flush flushes p.
+func (p *Port) Flush() error {
+	return nil // FIXME
+}
+
 // Reconfigure reconfigures p.
 func (p *Port) Reconfigure(config *Config) error {
 	termios, err := config.termios()

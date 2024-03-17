@@ -10,4 +10,12 @@ var (
 	_ io.Closer = &serial.Port{}
 	_ io.Reader = &serial.Port{}
 	_ io.Writer = &serial.Port{}
+
+	_ interface {
+		Close() error
+		Flush() error
+		Read([]byte) (int, error)
+		Reconfigure(*serial.Config) error
+		Write([]byte) (int, error)
+	} = &serial.Port{}
 )
