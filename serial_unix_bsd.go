@@ -86,7 +86,7 @@ func (c Config) termios() (unix.Termios, error) {
 	if parityBitsFlag, ok := parityBitsFlags[c.Parity]; ok {
 		termios.Cflag |= parityBitsFlag
 	} else {
-		return unix.Termios{}, fmt.Errorf("%d: invalid parity bits", c.Parity)
+		return unix.Termios{}, fmt.Errorf("%d: invalid parity", c.Parity)
 	}
 
 	if stopBitsFlag, ok := stopBitsFlags[c.StopBits]; ok {
